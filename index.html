@@ -1,44 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="main.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
   
-  <title>Frontend Mentor | Tip calculator app</title>
+  <body>
+    <div class="container">
+      <div class="splitter">
+        <h1>SPLI</h1>
+        <br />
+        <h1>TTER</h1>
+      </div>
+      <div class="calculator">
+        <div class="calc">
+          <form class="grey-input" onsubmit="formSubmit(event)">
+            <label>Bill<br /></label>
+            <div class="grey-box">
+              <h1>$</h1>
+              <input
+                id="bill"
+                type="number"
+                step="0.01"
+                placeholder="0"
+                min=".01"
+                oninput="formSubmit(event)"
+              />
+            </div>
+          </form>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  <!-- Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset -->
-  
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
-</body>
+          <label>Select Tip %<br /></label>
+          <div class="percent-grid">
+            <div class="box" id="five" onclick="buttonPress('five')">5%</div>
+            <div class="box" id="ten" onclick="buttonPress('ten')">10%</div>
+            <div class="box" id="fifteen" onclick="buttonPress('fifteen')">
+              15%
+            </div>
+            <div
+              class="box"
+              id="twentyfive"
+              onclick="buttonPress('twentyfive')"
+            >
+              25%
+            </div>
+            <div class="box" id="fifty" onclick="buttonPress('fifty')">50%</div>
+            <div class="box" id="custom">
+              <form
+                class="grey-input"
+                onsubmit="formSubmit(event)"
+                onclick="buttonPress('custom')"
+              >
+                <input
+                  id="percent"
+                  type="number"
+                  placeholder="Custom"
+                  oninput="formSubmit(event)"
+                />
+              </form>
+            </div>
+          </div>
+          <form class="grey-input" onsubmit="formSubmit(event)">
+            <div style="display: flex; justify-content: space-between">
+              <label>Number of People</label><span id="error"></span>
+            </div>
+            <br />
+            <div class="grey-box" id="grey-box-people">
+              <img src="images/icon-person.svg" />
+              <input
+                oninput="formSubmit(event)"
+                placeholder="0"
+                id="people"
+                type="number"
+                min="1"
+                step="1"
+                onkeydown="if(event.key==='.'|| event.key==='e'||event.key==='-'){event.preventDefault();}"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="green-box">
+          <div>
+            <div class="total" id="tip-ammount">
+              <h3>Tip Amount<br /><span>/ person</span></h3>
+              <h1>$<span>0.00</span></h1>
+            </div>
+            <br />
+            <div class="total" id="total-ammount">
+              <h3>Total<br /><span>/ person</span></h3>
+              <h1>$<span>0.00</span></h1>
+            </div>
+          </div>
+          <div class="reset" onclick="resetForm()">RESET</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
