@@ -86,7 +86,7 @@ function checkReset() {
     bill.value == "" &&
     people.value == "" &&
     custom.value == "" &&
-    currentid == ""
+    (currentid === null || currentid === "")
   ) {
     reset.style.backgroundColor = "rgb(13,104,109)";
   } else {
