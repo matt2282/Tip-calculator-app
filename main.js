@@ -1,3 +1,13 @@
+const bill = document.getElementById("bill");
+const custom = document.getElementById("percent");
+const people = document.getElementById("people");
+const tipAmount = document.querySelector("#tip-ammount h1 span");
+const totalAmount = document.querySelector("#total-ammount h1 span");
+const greyBoxPeople = document.getElementById("grey-box-people");
+const greyBoxCustom = document.getElementById("custom")
+const error = document.getElementById("error");
+const reset = document.querySelector(".reset");
+document.addEventListener("DOMContentLoaded", checkReset());
 function buttonPress(id) {
   var currentid = localStorage.getItem("currentid");
   if (currentid && currentid !== "custom") {
@@ -10,20 +20,15 @@ function buttonPress(id) {
     amount.style.backgroundColor = " hsl(172, 67%, 45%)";
     amount.style.color = "hsl(183, 100%, 15%)";
   }
+  if(id=="custom"){
+    greyBoxCustom.style.boxShadow="0 0 0 2px hsl(172, 67%, 45%)";
+  }else{
+    greyBoxCustom.style.boxShadow="";
+  }
+
   localStorage.setItem("currentid", id);
   checkReset();
 }
-
-const bill = document.getElementById("bill");
-const custom = document.getElementById("percent");
-const people = document.getElementById("people");
-const tipAmount = document.querySelector("#tip-ammount h1 span");
-const totalAmount = document.querySelector("#total-ammount h1 span");
-const greyBoxPeople = document.getElementById("grey-box-people");
-const error = document.getElementById("error");
-const reset = document.querySelector(".reset");
-document.addEventListener("DOMContentLoaded", checkReset());
-
 people.addEventListener("invalid", (e) => {
   e.preventDefault();
   greyBoxPeople.style.boxShadow = "0 0 0 2px red";
