@@ -13,9 +13,10 @@ function buttonPress(id) {
   if (currentid && currentid !== "custom") {
     try {
       var currentElement = document.getElementById(currentid);
-    } catch {}
       currentElement.style.backgroundColor = "";
       currentElement.style.color = "";
+    } catch {}
+      
   }
   var amount = document.getElementById(id);
   if (id !== "custom") {
