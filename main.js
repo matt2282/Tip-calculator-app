@@ -7,7 +7,7 @@ const greyBoxPeople = document.getElementById("grey-box-people");
 const greyBoxCustom = document.getElementById("custom");
 const error = document.getElementById("error");
 const reset = document.querySelector(".reset");
-document.addEventListener("DOMContentLoaded", checkReset());
+document.addEventListener("DOMContentLoaded", () =>{reset.style.backgroundColor = "rgb(13,104,109)";});
 function buttonPress(id) {
   var currentid = localStorage.getItem("currentid");
   if (currentid && currentid !== "custom") {
@@ -38,6 +38,7 @@ people.addEventListener("invalid", (e) => {
   error.innerHTML = "Can't be zero";
   tipAmount.innerHTML = "0.00";
   totalAmount.innerHTML = "0.00";
+  checkReset();
 });
 function formSubmit(event) {
   if (event != null) {
