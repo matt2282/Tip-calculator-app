@@ -94,6 +94,8 @@ label {
 }
 
 .percent-grid .box {
+  border: none;
+  font-family: "Space Mono";
   border-radius: 0.5rem;
   font-size: 24px;
   font-weight: 600;
@@ -183,6 +185,7 @@ input::-webkit-inner-spin-button {
 }
 .total h1 span,
 .total h1 {
+  
   font-size: 32px;
   color: hsl(172, 67%, 45%);
 }
@@ -204,6 +207,8 @@ input::-webkit-inner-spin-button {
   border-radius: 0.5rem;
   color: hsl(183, 100%, 15%);
   cursor: pointer;
+  border: none;
+  font-family: "Space Mono";
 }
 .reset:hover {
   background-color: rgb(159, 232, 223);

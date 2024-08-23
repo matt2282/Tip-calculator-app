@@ -19,7 +19,7 @@
 
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
-  
+
   <body>
     <div class="container">
       <div class="splitter">
@@ -46,30 +46,36 @@
 
           <label>Select Tip %<br /></label>
           <div class="percent-grid">
-            <div class="box" id="five" onclick="buttonPress('five')">5%</div>
-            <div class="box" id="ten" onclick="buttonPress('ten')">10%</div>
-            <div class="box" id="fifteen" onclick="buttonPress('fifteen')">
+            <button class="box" id="five" onclick="buttonPress('five')">
+              5%
+            </button>
+            <button class="box" id="ten" onclick="buttonPress('ten')">
+              10%
+            </button>
+            <button class="box" id="fifteen" onclick="buttonPress('fifteen')">
               15%
-            </div>
-            <div
+            </button>
+            <button
               class="box"
               id="twentyfive"
               onclick="buttonPress('twentyfive')"
             >
               25%
-            </div>
-            <div class="box" id="fifty" onclick="buttonPress('fifty')">50%</div>
+            </button>
+            <button class="box" id="fifty" onclick="buttonPress('fifty')">50%</button>
             <div class="box" id="custom">
               <form
                 class="grey-input"
-                onsubmit="formSubmit(event)"
+                onsubmit="formSubmit(event), buttonPress('custom')"
                 onclick="buttonPress('custom')"
               >
                 <input
                   id="percent"
                   type="number"
                   placeholder="Custom"
-                  oninput="formSubmit(event)"
+                  min="1"
+                  oninput="formSubmit(event), buttonPress('custom')"
+                  onkeydown="if(event.key==='e'||event.key==='-'){event.preventDefault();}"
                 />
               </form>
             </div>
@@ -82,13 +88,13 @@
             <div class="grey-box" id="grey-box-people">
               <img src="images/icon-person.svg" />
               <input
-                oninput="formSubmit(event)"
                 placeholder="0"
                 id="people"
                 type="number"
                 min="1"
                 step="1"
                 onkeydown="if(event.key==='.'|| event.key==='e'||event.key==='-'){event.preventDefault();}"
+                oninput="if(form.checkValidity()){resetError(), formSubmit()}"
               />
             </div>
           </form>
@@ -105,7 +111,7 @@
               <h1>$<span>0.00</span></h1>
             </div>
           </div>
-          <div class="reset" onclick="resetForm()">RESET</div>
+          <button class="reset" onclick="resetForm()">RESET</button>
         </div>
       </div>
     </div>
